@@ -5,11 +5,10 @@ Built by a 12yo. This AV is completely free and fully functional.
 In the future we will contribute to AI research and children in foster homes. 
 Enjoy free protection that feels premium.
 
-## ⚠️ Important: YARA Rules Required
-Spyder **includes the YARA engine but NOT the rule files**. 
-You must create a `rules.yar` file with malware signatures for Spyder to work.
+## ⚠️ Requiere rules.yar
+Spyder incluye el motor YARA, pero **NO las reglas**. Crea un archivo `rules.yar` antes de usar.
 
-**Quick setup with community rules:**
+## Compilación
 ```bash
-wget https://github.com/Yara-Rules/rules/archive/master.zip
-unzip master.zip && cat rules-master/malware/*.yar > rules.yar
+sudo apt install libyara-dev libcurl4-openssl-dev libssl-dev
+g++ --std=c++17 -O3 -o spyder spyder.cpp -lyara -lcrypto -lcurl -pthread -w
